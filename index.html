@@ -21,38 +21,76 @@
         let lcPlayerSelection = playerSelection.toLowerCase()
        
         if(lcPlayerSelection == computerSelection){
-            result = "Its a draw";
+            console.log("Its a draw")
+            result = "draw";
         }
 
         if(lcPlayerSelection == "rock"){
             if(computerSelection == "paper"){
-                result = "Computer wins, paper covers rock.";       
+                console.log("Computer wins, paper covers rock.")
+                result = "computer";       
             }else{
-                result = "Player wins, rock beats scissors.";
+                console.log("Player wins, rock beats scissors.")
+                result = "player";
             }
         }
         if(lcPlayerSelection == "scissors"){
             if(computerSelection == "rock"){
-                result = "Computer wins, rock beats scissors.";      
+                console.log("Computer wins, rock beats scissors.")
+                result = "computer";      
             }else{
-                result = "Player wins, scissor cuts paper.";
+                console.log("Player wins, scissor cuts paper.")
+                result = "player";
             }
         }
         if(lcPlayerSelection == "paper"){
             if(computerSelection == "scissors"){
-                result = "Computer wins, scissors cuts paper.";      
+                console.log("Computer wins, scissors cuts paper.")
+                result = "computer";      
             }else{
-                result = "Player wins, paper covers rock.";
+                console.log("Player wins, paper covers rock.") 
+                result = "player";
             }
         }
 
 
         return result;
     }
+
+    function game(playerSelection, computerSelection){
+        let computerWins = 0;
+        let playerWins = 0;
+        let result = "is not working"
+
+        for(let i = 0; i < 4; i++){
+            playerSelection = prompt("Enter rock, paper, or scissors");
+            switch(playRound(playerSelection, computerSelection)){
+                case "draw":    
+                    break;
+                case "player":
+                    playerWins = playerWins + 1
+                    break;
+                case "computer":
+                    computerWins = computerWins + 1
+                    break;
+            }       
+        }
+
+
+        if(computerWins > playerWins){
+            result = "Computer wins!"
+        }else if(playerWins > computerWins){
+            result = "Player wins!"
+        }else{
+            result = "Draw!"
+        }
+
+        return result
+    }
  
     const playerSelection = prompt("Enter rock, paper, or scissors");
     const computerSelection = getComputerChoice();
-    console.log(playRound(playerSelection, computerSelection));
+    console.log(game(playerSelection, computerSelection));
 
 
 </script>
