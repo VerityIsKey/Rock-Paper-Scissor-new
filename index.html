@@ -1,5 +1,5 @@
 <script>
-
+    // dispraportionately chooses rock
     function getComputerChoice() {
         let randomNumber = Math.floor(Math.random() * 100) + 1;
 
@@ -15,14 +15,16 @@
 
 
     }
-
+    //draw isnt stopping function
     function playRound(playerSelection, computerSelection) {
         let result = "Program is not working"
         let lcPlayerSelection = playerSelection.toLowerCase()
        
+       
         if(lcPlayerSelection == computerSelection){
             console.log("Its a draw")
             result = "draw";
+            return result;
         }
 
         if(lcPlayerSelection == "rock"){
@@ -62,7 +64,8 @@
         let playerWins = 0;
         let result = "is not working"
 
-        for(let i = 0; i < 4; i++){
+        for(let i = 0; i < 5; i++){
+            computerSelection = getComputerChoice()
             playerSelection = prompt("Enter rock, paper, or scissors");
             switch(playRound(playerSelection, computerSelection)){
                 case "draw":    
@@ -73,7 +76,8 @@
                 case "computer":
                     computerWins = computerWins + 1
                     break;
-            }       
+            } 
+                    
         }
 
 
@@ -88,7 +92,7 @@
         return result
     }
  
-    const playerSelection = prompt("Enter rock, paper, or scissors");
+    const playerSelection = " ";
     const computerSelection = getComputerChoice();
     console.log(game(playerSelection, computerSelection));
 
