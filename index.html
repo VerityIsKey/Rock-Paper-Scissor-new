@@ -59,38 +59,7 @@
         return result;
     }
 
-    function game(playerSelection, computerSelection){
-        let computerWins = 0;
-        let playerWins = 0;
-        let result = "is not working"
 
-        for(let i = 0; i < 5; i++){
-            computerSelection = getComputerChoice()
-            playerSelection = prompt("Enter rock, paper, or scissors");
-            switch(playRound(playerSelection, computerSelection)){
-                case "draw":    
-                    break;
-                case "player":
-                    playerWins = playerWins + 1
-                    break;
-                case "computer":
-                    computerWins = computerWins + 1
-                    break;
-            } 
-                    
-        }
-
-
-        if(computerWins > playerWins){
-            result = "Computer wins!"
-        }else if(playerWins > computerWins){
-            result = "Player wins!"
-        }else{
-            result = "Draw!"
-        }
-
-        return result
-    }
  
     const playerSelection = " ";
     const computerSelection = getComputerChoice();
