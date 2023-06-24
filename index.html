@@ -1,69 +1,111 @@
-<script>
-    // dispraportionately chooses rock
-    function getComputerChoice() {
-        let randomNumber = Math.floor(Math.random() * 100) + 1;
-
-        if(randomNumber <= 33){
-            return "paper"
-        }
-        else if(randomNumber > 66){
-            return "rock"
-        }
-        else {
-            return "scissors"
-        }
-
-
-    }
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="styles.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
    
-    function playRound(playerSelection, computerSelection) {
-        let result = "Program is not working"
-        let lcPlayerSelection = playerSelection.toLowerCase()
+    <div class="container">
+        <div class="selection">
+            <button class="choices rock">Rock</button>
+            <button class="choices paper">Paper</button>
+            <button class="choices scissors">Scissors</button>
+        </div>
+    </div>
+    <div class="results"></div>
+
+
+
+
+
+    
+    
+
+    <script>
+        // dispraportionately chooses rock
+        function getComputerChoice() {
+            let randomNumber = Math.floor(Math.random() * 100) + 1;
+    
+            if(randomNumber <= 33){
+                return "paper"
+            }
+            else if(randomNumber > 66){
+                return "rock"
+            }
+            else {
+                return "scissors"
+            }
+    
+    
+        }
+        const choices = document.querySelectorAll('button');
+        
+
+        choices.forEach(choice => choice.addEventListener('click', playRound(choice, getComputerChoice())));
+      
+        function playRound(e, computerSelection){
+           
+            let playerSelection = e.textContent.toLowerCase();
+            console.log(playerSelection);
+        }
+
+        
        
-       
-        if(lcPlayerSelection == computerSelection){
-            console.log("Its a draw")
-            result = "draw";
-            return result;
-        }
+        // function playRound(playerSelection, computerSelection) {
+        //     let result = "Program is not working"
+        //     let lcPlayerSelection = playerSelection.toLowerCase()
+           
+           
+        //     if(lcPlayerSelection == computerSelection){
+        //         console.log("Its a draw")
+        //         result = "draw";
+        //         return result;
+        //     }
+    
+        //     if(lcPlayerSelection == "rock"){
+        //         if(computerSelection == "paper"){
+        //             console.log("Computer wins, paper covers rock.")
+        //             result = "computer";       
+        //         }else{
+        //             console.log("Player wins, rock beats scissors.")
+        //             result = "player";
+        //         }
+        //     }
+        //     if(lcPlayerSelection == "scissors"){
+        //         if(computerSelection == "rock"){
+        //             console.log("Computer wins, rock beats scissors.")
+        //             result = "computer";      
+        //         }else{
+        //             console.log("Player wins, scissor cuts paper.")
+        //             result = "player";
+        //         }
+        //     }
+        //     if(lcPlayerSelection == "paper"){
+        //         if(computerSelection == "scissors"){
+        //             console.log("Computer wins, scissors cuts paper.")
+        //             result = "computer";      
+        //         }else{
+        //             console.log("Player wins, paper covers rock.") 
+        //             result = "player";
+        //         }
+        //     }
+    
+    
+        //     return result;
+        // }
+    
+    </script>
+</body>
+</html>;
 
-        if(lcPlayerSelection == "rock"){
-            if(computerSelection == "paper"){
-                console.log("Computer wins, paper covers rock.")
-                result = "computer";       
-            }else{
-                console.log("Player wins, rock beats scissors.")
-                result = "player";
-            }
-        }
-        if(lcPlayerSelection == "scissors"){
-            if(computerSelection == "rock"){
-                console.log("Computer wins, rock beats scissors.")
-                result = "computer";      
-            }else{
-                console.log("Player wins, scissor cuts paper.")
-                result = "player";
-            }
-        }
-        if(lcPlayerSelection == "paper"){
-            if(computerSelection == "scissors"){
-                console.log("Computer wins, scissors cuts paper.")
-                result = "computer";      
-            }else{
-                console.log("Player wins, paper covers rock.") 
-                result = "player";
-            }
-        }
 
 
-        return result;
-    }
 
 
- 
-    const playerSelection = " ";
-    const computerSelection = getComputerChoice();
-    console.log(game(playerSelection, computerSelection));
 
 
-</script>
+
+
