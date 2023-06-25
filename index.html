@@ -15,7 +15,12 @@
             <button class="choices scissors">Scissors</button>
         </div>
     </div>
-    <div class="results"></div>
+    <div class="scoreBoard">
+        <p class="computerScore">0</p>
+        <p class="playerScore">0</p>
+
+    </div>
+    <div class="results">result</div>
 
 
 
@@ -64,6 +69,13 @@
         });
 
       
+        let playerScore = 0;
+        let computerScore = 0;
+        const playerScoreElement = document.querySelector('.playerScore');
+        const computerScoreElement = document.querySelector('.computerScore');
+        const resultElement = document.querySelector('.results');
+
+
         function playRound(playerSelection, computerSelection){
             let result = "Program is not working"
             
@@ -102,9 +114,45 @@
                     result = "player";
                 }
             }
-    
+            // add to score tally//
             console.log(result);
-            return result;
+            //return result;
+
+            if (result == "player"){
+                //const playerScoreElement = document.querySelector('.playerScore');
+                
+                playerScore += 1;
+
+                playerScoreElement.textContent = playerScore;
+                
+
+            }else if(result == "computer"){
+                //const computerScoreElement = document.querySelector('.computerScore');
+                
+                computerScore += 1;
+
+                computerScoreElement.textContent = computerScore;
+                
+            }
+
+            if(playerScore == 5){
+                //const result = document.querySelector('.results');
+
+                resultElement.textContent = "Player wins";
+                
+                computerScore = 0;
+                computerScoreElement.textContent = computerScore;
+                playerScore = 0;
+                playerScoreElement.textContent = playerScore;
+
+            }else if(computerScore == 5){
+                resultElement.textContent = "Computer wins";
+
+                computerScore = 0;
+                computerScoreElement.textContent = computerScore;
+                playerScore = 0;
+                playerScoreElement.textContent = playerScore;
+            }
 
         }
 
