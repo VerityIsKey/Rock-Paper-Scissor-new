@@ -41,62 +41,76 @@
     
     
         }
-        const choices = document.querySelectorAll('button');
         
+        //TAKES ANY CHOICE AN PLAYS A ROUND//
+        const rock = document.querySelector('.rock');
+        rock.addEventListener('click', function (e) {
+            let playerSelection = e.target.textContent.toLowerCase();
 
-        choices.forEach(choice => choice.addEventListener('click', playRound(choice, getComputerChoice())));
+            playRound(playerSelection, getComputerChoice());
+        });
+        
+        const paper = document.querySelector('.paper');
+        paper.addEventListener('click', function (e) {
+            let playerSelection = e.target.textContent.toLowerCase();
+
+            playRound(playerSelection, getComputerChoice());
+        });
+        const scissors = document.querySelector('.scissors');
+        scissors.addEventListener('click', function (e) {
+            let playerSelection = e.target.textContent.toLowerCase();
+
+            playRound(playerSelection, getComputerChoice());
+        });
+
       
-        function playRound(e, computerSelection){
+        function playRound(playerSelection, computerSelection){
+            let result = "Program is not working"
+            
            
-            let playerSelection = e.textContent.toLowerCase();
-            console.log(playerSelection);
+           
+            if(playerSelection == computerSelection){
+                console.log("Its a draw")
+                result = "draw";
+                return result;
+            }
+    
+            if(playerSelection == "rock"){
+                if(computerSelection == "paper"){
+                    console.log("Computer wins, paper covers rock.")
+                    result = "computer";       
+                }else{
+                    console.log("Player wins, rock beats scissors.")
+                    result = "player";
+                }
+            }
+            if(playerSelection == "scissors"){
+                if(computerSelection == "rock"){
+                    console.log("Computer wins, rock beats scissors.")
+                    result = "computer";      
+                }else{
+                    console.log("Player wins, scissor cuts paper.")
+                    result = "player";
+                }
+            }
+            if(playerSelection == "paper"){
+                if(computerSelection == "scissors"){
+                    console.log("Computer wins, scissors cuts paper.")
+                    result = "computer";      
+                }else{
+                    console.log("Player wins, paper covers rock.") 
+                    result = "player";
+                }
+            }
+    
+            console.log(result);
+            return result;
+
         }
 
         
        
-        // function playRound(playerSelection, computerSelection) {
-        //     let result = "Program is not working"
-        //     let lcPlayerSelection = playerSelection.toLowerCase()
-           
-           
-        //     if(lcPlayerSelection == computerSelection){
-        //         console.log("Its a draw")
-        //         result = "draw";
-        //         return result;
-        //     }
-    
-        //     if(lcPlayerSelection == "rock"){
-        //         if(computerSelection == "paper"){
-        //             console.log("Computer wins, paper covers rock.")
-        //             result = "computer";       
-        //         }else{
-        //             console.log("Player wins, rock beats scissors.")
-        //             result = "player";
-        //         }
-        //     }
-        //     if(lcPlayerSelection == "scissors"){
-        //         if(computerSelection == "rock"){
-        //             console.log("Computer wins, rock beats scissors.")
-        //             result = "computer";      
-        //         }else{
-        //             console.log("Player wins, scissor cuts paper.")
-        //             result = "player";
-        //         }
-        //     }
-        //     if(lcPlayerSelection == "paper"){
-        //         if(computerSelection == "scissors"){
-        //             console.log("Computer wins, scissors cuts paper.")
-        //             result = "computer";      
-        //         }else{
-        //             console.log("Player wins, paper covers rock.") 
-        //             result = "player";
-        //         }
-        //     }
-    
-    
-        //     return result;
-        // }
-    
+       
     </script>
 </body>
 </html>;
