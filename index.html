@@ -114,12 +114,10 @@
                     result = "player";
                 }
             }
-            // add to score tally//
-            console.log(result);
-            //return result;
+            
 
             if (result == "player"){
-                //const playerScoreElement = document.querySelector('.playerScore');
+                
                 
                 playerScore += 1;
 
@@ -127,7 +125,6 @@
                 
 
             }else if(result == "computer"){
-                //const computerScoreElement = document.querySelector('.computerScore');
                 
                 computerScore += 1;
 
@@ -136,8 +133,7 @@
             }
 
             if(playerScore == 5){
-                //const result = document.querySelector('.results');
-
+               
                 resultElement.textContent = "Player wins";
                 
                 computerScore = 0;
@@ -161,7 +157,7 @@
        
     </script>
 </body>
-</html>;
+</html>
 
 
 
