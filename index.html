@@ -15,12 +15,25 @@
             <button class="choices scissors">Scissors</button>
         </div>
     </div>
-    <div class="scoreBoardContainer">
+    <div class="scoreBoardContainer titles">
+        <h1 class="computerTitle">Computer</h1>
+        <h1 class="playerTitle">Player</h1>
+
+    </div>
+    <div class="scoreBoardContainer scoreBoard">
         <p class="computerScore">0</p>
         <p class="playerScore">0</p>
 
     </div>
-    <div class="results">result</div>
+
+    <div class="currentRoundContainer">
+        <p class="computersChoice">Choosing...</p>
+        <p class="playersChoice">Choosing...</p>
+    </div>
+    <div class="currentRoundResults">
+        <h1 class="roundResults"></h1>
+    </div>
+    <div class="gameResults results">Game result</div>
 
 
 
@@ -74,12 +87,16 @@
         const playerScoreElement = document.querySelector('.playerScore');
         const computerScoreElement = document.querySelector('.computerScore');
         const resultElement = document.querySelector('.results');
-
-
+        const playersChoice = document.querySelector('.playersChoice');
+        const computersChoice = document.querySelector('.computersChoice');
+        const roundResult = document.querySelector('.roundResults');
         function playRound(playerSelection, computerSelection){
             let result = "Program is not working"
             
-           
+            computersChoice.textContent = computerSelection.toUpperCase();
+            playersChoice.textContent = playerSelection.toUpperCase();
+            
+            
            
             if(playerSelection == computerSelection){
                 console.log("Its a draw")
@@ -115,6 +132,8 @@
                 }
             }
             
+            roundResult.textContent = "the round winner is: " + result.toUpperCase();
+
 
             if (result == "player"){
                 

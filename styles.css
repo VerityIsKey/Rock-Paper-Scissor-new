@@ -12,9 +12,15 @@
     justify-content: center;
 }
 
+.choices {
+    width: 200px;
+    height: 150px;
+}
 
 .scoreBoardContainer {
+    font-size: large;
     display: flex;
+
     background-color: #1f2937;
     color: white;
     padding: 20px 0;
@@ -23,7 +29,41 @@
     gap: 40px;
 }
 
+.scoreBoard {
+    gap: 90px;
+}
+
+.computerScore,
+.playerScore {
+    font-size: 48px;
+
+}
+
+.playerScore {
+    margin-left: 60px;
+}
+
+
+.currentRoundContainer {
+    display: flex;
+    background-color: #1f2937;
+    color: white;
+    padding: 20px 0;
+    justify-content: center;
+    gap:70px;
+}
+
+.currentRoundResults {
+    display: flex;
+    background-color: #1f2937;
+    color: white;
+    padding: 20px 0;
+    justify-content: center;
+    
+}
+
 .results {
+    font-size: 48px;
     display: flex;
     background-color: #1f2937;
     color: white;
